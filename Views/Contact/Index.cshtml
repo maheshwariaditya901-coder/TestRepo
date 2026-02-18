@@ -1,11 +1,80 @@
-﻿ 
+﻿ @model ContactModel;
 @{
 
 
 }
 
-<div class="row">
-    <div class="col-lg-9 mx-auto rounded border p-4">
-        <h2 class="text-center mb-3> Contact Form</h2>
-    </div> 
+<div class="col-lg-9 mx-auto rounded border p-4">
+    <h2 class="text-center mb-3">Contact Form</h2>
+
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            Email:
+        </div>
+        <div class="col-sm-8">
+            @ViewData["EmailAddress"]
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            Address:
+        </div>
+        <div class="col-sm-8">
+            @ViewBag.Address
+        </div>
+    </div>
+
+    <br />
+
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@ViewBag.SuccessMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+
+    <form  method="post">
+
+ 
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" placeholder="Enter first name" />
+                <span asp-validation-for="FirstName" class="text-danger small"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" placeholder="Enter last name" />
+                <span asp-validation-for="LastName" class="text-danger small"></span>
+            </div>
+        </div>
+
+       
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" placeholder="Enter email address" />
+            <span asp-validation-for="Email" class="text-danger small"></span>
+        </div>
+ 
+        <div class="mb-3">
+            <label asp-for="Message" class="form-label"></label>
+            <textarea asp-for="Message" class="form-control" rows="4" placeholder="Write your message"></textarea>
+            <span asp-validation-for="Message" class="text-danger small"></span>
+        </div>
+
+       
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Send Message
+            </button>
+        </div>
+
+    </form>
+
+    
+
 </div>
