@@ -18,4 +18,6 @@ namespace WebApplication1.Controllers
         }
     }
 }
+
+//Controller helps to Talks to Model and Returns View.
         
