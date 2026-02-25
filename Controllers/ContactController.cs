@@ -32,10 +32,10 @@ namespace WebApplication1.Controllers
             // here we do  Model Binding.
             ViewData["EmailAddress"] = email;       
                 ViewBag.Address = address;
-
+                
                 if (!ModelState.IsValid)
                 {
-                    return View(model);
+                    return View(model); 
                 }
                 ViewBag.SuccessMessage = "you submitted the form";
                 ModelState.Clear();
